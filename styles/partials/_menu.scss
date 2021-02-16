@@ -1,19 +1,87 @@
 header {
-  border: 1px solid red;
-
   width: 100%;
-
   padding-top: 16px;
 }
 
 .navbar {
   max-width: 1440px;
-  border: 1px solid red;
-
-  //usando o margin para definir o alinhamento do elemento, o 0 referente ao width e height e o auto para ajustar automaticamente na linha horizontal, assim ele ficará ajustado ao centro do elemento pai
-  margin: 0 auto;
-
   display: flex;
-  justify-content: center;
+
+  margin: 0 auto;
   align-items: center;
+  justify-content: space-between;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  max-width: 88px;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+}
+
+.nav-link {
+  margin-left: 24px;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: $gray-3;
+  position: relative;
+
+  transition: 0.5s;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 0px;
+
+    top: -40px;
+    left: 45%;
+    background: linear-gradient(180deg, rgba(215, 27, 31, 0) 0%, #d71b1f 100%);
+
+    position: absolute;
+
+    transition: 0.5s;
+  }
+
+  &:hover {
+    color: $white-light;
+
+    &::after {
+      height: 40px;
+    }
+  }
+}
+
+.nav-social {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  a {
+    margin-left: 15px;
+  }
+
+  svg {
+    width: 50px;
+
+    path,
+    circle {
+      transition: 0.5s;
+    }
+
+    &:hover {
+      path,
+      circle {
+        fill: $red-light;
+        transform: translate3d(0, -3px, 0);
+      }
+    }
+  }
 }
