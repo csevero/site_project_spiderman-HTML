@@ -1,6 +1,4 @@
 .container {
-  border: 1px solid red;
-
   max-width: 1440px;
   margin: 0 auto;
 
@@ -16,7 +14,6 @@
 
 .container-item-1 {
   max-width: 576px;
-  border: 1px solid green;
 
   display: flex;
   //quando definimos o flex-direction em um elemento, o align items e o justify content ficam invertidos, então para ajustar horizontalmente em vez de justify content, usamos o align items com flex start, para grudar no começo do elemento pai
@@ -25,10 +22,115 @@
 }
 
 .container-item-2 {
-  border: 1px solid yellow;
 }
 
 .spiderman {
   width: 140%;
   transform: translate3d(-170px, 0, 0);
+}
+
+.btn {
+  //todos links por padrão vem como inline, no caso definindo ele como inline block, ele vira uma 'caixa' e podemos estilizar ele mais tranquilmamente
+  display: inline-block;
+
+  padding: 12px 32px;
+
+  border-radius: 3px;
+  transform: skewX(-10deg);
+
+  text-transform: uppercase;
+  background: linear-gradient(267.72deg, #f02a2f 0.88%, #ea1d22 100%);
+
+  position: relative;
+
+  transition: 0.5s ease-in-out;
+
+  &::after {
+    content: "";
+    display: block;
+
+    position: absolute;
+    top: -2px;
+    left: -2px;
+
+    width: 20%;
+    height: 70%;
+    border-radius: 3px;
+
+    border-top: 3px solid $white;
+    border-left: 3px solid $white;
+
+    transition: 0.5s ease-in-out;
+
+    opacity: 0;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+
+    width: 20%;
+    height: 70%;
+    border-radius: 3px;
+
+    border-bottom: 3px solid $white;
+    border-right: 3px solid $white;
+
+    transition: 0.5s ease-in-out;
+
+    opacity: 0;
+  }
+
+  &:hover {
+    transform: skewX(-10deg) scale(1.05);
+    &::after {
+      opacity: 1;
+    }
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.btn-secondary {
+  display: inline-block;
+
+  padding: 10px 32px;
+  margin-left: 15px;
+  border-radius: 3px;
+  transform: skewX(-10deg);
+
+  text-transform: uppercase;
+
+  border: 2px solid $red-light;
+
+  position: relative;
+
+  background: transparent;
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: -1px;
+    width: 0%;
+    height: 102%;
+
+    background: linear-gradient(267.72deg, #f02a2f 0.88%, #ea1d22 100%);
+
+    z-index: -1;
+
+    transition: 0.5s ease-in-out;
+  }
+
+  &:hover {
+    &::after {
+      width: 101%;
+    }
+  }
 }
