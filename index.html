@@ -64,17 +64,25 @@
             />
           </a>
         </div>
+        <div class="bx mr-2"></div>
       </nav>
     </header>
+
+    <!--BD VÍDEO-->
+    <section class="bg-video">
+      <video class="video" autoplay loop muted>
+        <source src="video/spiderman2.mp4" type="video/mp4" />
+      </video>
+    </section>
 
     <!--CONTAINER-->
 
     <section class="container">
       <div class="container-item-1">
-        <div>
+        <div class="px-1">
           <img src="images/spiderman-text.png" alt="name Spider-man" />
         </div>
-        <p>
+        <p class="my-2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fringilla
           molestie ultrices at faucibus hendrerit risus mattis vestibulum
           dictumst. Pellentesque posuere purus eros, euismod aliquet ac euismod
@@ -82,16 +90,17 @@
           Euismod pellentesque et sed odio dui egestas amet, interdum
           vestibulum.
         </p>
-        <div>
-          <a href="" class="btn">Pre-oder now</a>
-          <a href="" class="btn-secondary">Watch the teaser</a>
+        <div class="my-1">
+          <a href="" class="btn mr-2 mt-1">Pre-oder now</a>
+          <a href="" class="btn-secondary mt-1">Watch the teaser</a>
         </div>
-        <div>
-          <a href="#">
+        <div class="flex align-center mt-2">
+          <a href="#" class="mr-2">
             <img
               src="images/ps.svg"
               onload="SVGInject(this)"
               alt="logo twitter"
+              class="w-auto"
             />
           </a>
           <a href="#">
@@ -99,13 +108,28 @@
               src="images/marvel.svg"
               onload="SVGInject(this)"
               alt="logo twitter"
+              class="w-auto"
             />
           </a>
         </div>
       </div>
       <div class="container-item-2">
-        <img class="spiderman" src="images/spiderman-img-main.png" alt="" />
+        <div class="js-tilt">
+          <img class="spiderman" src="images/spiderman-img-main.png" alt="" />
+        </div>
       </div>
     </section>
+
+    <script src="js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+    <script>
+      $(".js-tilt").tilt({
+        perspective: 3000,
+        /* scale: 1.01, */
+      });
+    </script>
   </body>
 </html>
