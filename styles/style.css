@@ -38,6 +38,42 @@ p {
   max-width: 1440px;
   margin: 0 auto;
   padding: 36px 16px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container-item-1 {
+  max-width: 576px;
+  border: 1px solid green;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.container-item-2 {
+  border: 1px solid yellow;
+}
+
+.spiderman {
+  width: 140%;
+  -webkit-transform: translate3d(-170px, 0, 0);
+          transform: translate3d(-170px, 0, 0);
 }
 
 header {

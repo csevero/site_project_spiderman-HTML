@@ -1,9 +1,34 @@
 .container {
-   border: 1px solid red;
+  border: 1px solid red;
 
-   max-width: 1440px;
+  max-width: 1440px;
+  margin: 0 auto;
 
-   margin: 0 auto;
+  padding: 36px 16px;
 
-   padding: 36px 16px;
+  //como o spiderman deixamos grande, ele criou uma barra de rolagem em baixo, para resolver isso, utilizamos o overflow no container pai, para que tudo que esteja saindo dele, seja escondido, assim as partes do spider man que estavam estrapolando a div foram meio que 'cortadas' para caber na tela e tirar a barra de rolagem. Top!
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container-item-1 {
+  max-width: 576px;
+  border: 1px solid green;
+
+  display: flex;
+  //quando definimos o flex-direction em um elemento, o align items e o justify content ficam invertidos, então para ajustar horizontalmente em vez de justify content, usamos o align items com flex start, para grudar no começo do elemento pai
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container-item-2 {
+  border: 1px solid yellow;
+}
+
+.spiderman {
+  width: 140%;
+  transform: translate3d(-170px, 0, 0);
 }
