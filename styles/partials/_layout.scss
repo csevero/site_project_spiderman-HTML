@@ -4,7 +4,7 @@
 
   padding: 36px 16px;
 
-  height: 80vh;
+  height: 70vh;
 
   //como o spiderman deixamos grande, ele criou uma barra de rolagem em baixo, para resolver isso, utilizamos o overflow no container pai, para que tudo que esteja saindo dele, seja escondido, assim as partes do spider man que estavam estrapolando a div foram meio que 'cortadas' para caber na tela e tirar a barra de rolagem. Top!
   overflow: none;
@@ -14,7 +14,7 @@
   align-items: center;
 
   @include responsive() {
-    flex-direction: column;
+    flex-direction: column-reverse;
     height: auto;
     overflow: hidden;
   }
@@ -42,13 +42,17 @@
 }
 
 .spiderman {
-  width: 110%;
-  transform: translate3d(-170px, -20px, 0);
+  width: 120%;
+  transform: translate3d(-150px, -70px, 0);
 
   @include responsive() {
     width: 100%;
     transform: translate3d(0, 0, 0);
   }
+}
+
+.js-tilt {
+  height: 100%;
 }
 
 .btn {
@@ -187,4 +191,23 @@
       #0c0c10 77.6%
     );
   }
+}
+
+.bg-loader {
+   width: 100%;
+   height: 100%;
+
+   position: fixed;
+   top: 0;
+   left: 0;
+
+   z-index: 999;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   background: linear-gradient(225deg, $red 0%, $red-dark 100%);
+
+   overflow: hidden;
 }

@@ -69,12 +69,13 @@ header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  z-index: 10;
   @include responsive() {
     display: none;
   }
 
   a {
-    margin-left: 15px;
+    margin-left: 10px;
   }
 
   svg {
