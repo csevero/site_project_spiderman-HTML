@@ -1,5 +1,15 @@
+const toggle = document.querySelector("#bx");
+const nav = document.querySelector("#menu-mobile");
+
+//configuration 
+toggle.addEventListener("click", () => {
+  toggle.classList.toggle("active-bx");
+  nav.classList.toggle("active-menu-mobile");
+});
+
+//configuration for animation of entry
 document.addEventListener("DOMContentLoaded", () => {
-  let tl1 = new TimelineMax();
+  const tl1 = new TimelineMax();
 
   tl1
     .fromTo(
@@ -8,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { width: "100%" },
       {
         width: "0%",
-        delay: 1,
+        delay: 5,
         ease: Expo.easeInOut,
       }
     )

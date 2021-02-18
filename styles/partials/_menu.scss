@@ -3,6 +3,7 @@ header {
   padding-top: 16px;
 }
 
+//START STYLIZATION OF MENU DESKTOP
 .navbar {
   max-width: 1440px;
   display: flex;
@@ -10,6 +11,10 @@ header {
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
+
+  @include responsive() {
+    display: none;
+  }
 }
 
 .nav-menu {
@@ -19,8 +24,6 @@ header {
 
 .logo {
   max-width: 88px;
-
-  margin-left: 16px;
 }
 
 .nav-list {
@@ -70,9 +73,6 @@ header {
   align-items: center;
   justify-content: flex-end;
   z-index: 10;
-  @include responsive() {
-    display: none;
-  }
 
   a {
     margin-left: 10px;
@@ -93,18 +93,175 @@ header {
         transform: translate3d(0, -3px, 0);
       }
     }
+
+    @include responsive() {
+      display: none;
+    }
+  }
+}
+//END STYLIZATION OF MENU DESKTOP
+
+//START STYLIZATION OF MENU MOBILE
+.navbar-mobile {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+
+  @include responsive() {
+    display: flex;
   }
 }
 
 .bx {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
 
   display: none;
-  background-color: $white;
-  border-radius: 8px;
+  cursor: pointer;
+
+  position: fixed;
+  right: 0;
+
+  z-index: 998;
+
+  &::after,
+  &::before {
+    content: "";
+    display: block;
+
+    position: absolute;
+
+    width: 75%;
+    height: 2px;
+
+    background: $white-light;
+    transition: 0.5s;
+  }
+
+  &::after {
+    top: 57%;
+    left: 12%;
+  }
+
+  &::before {
+    top: 33%;
+    left: 12%;
+  }
 
   @include responsive() {
-    display: block;
+    display: flex;
+  }
+}
+
+.active-bx {
+  width: 36px;
+  height: 36px;
+
+  position: fixed;
+  cursor: pointer;
+
+  z-index: 999;
+
+  right: 0;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 17%;
+    width: 70%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: $white-light;
+    transition: 0.5s;
+  }
+
+  &::before {
+    transform: rotate(315deg);
+  }
+
+  &::after {
+    transform: rotate(-135deg);
+  }
+}
+
+.menu-mobile {
+  width: 100vw;
+  height: 100vh;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  background: $blue-light;
+  z-index: -1;
+
+  position: fixed;
+  top: 0;
+
+  opacity: 0;
+
+  transition: 0.5s;
+  @include responsive() {
+    display: flex;
+  }
+}
+
+.active-menu-mobile {
+  opacity: 1;
+  z-index: 998;
+}
+
+.nav-list-mobile {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  list-style: none;
+  flex-direction: column;
+}
+
+.nav-link-mobile {
+  font-size: 30px;
+  margin: 30px 0;
+
+  position: relative;
+
+  text-transform: uppercase;
+
+  transition: 0.5s;
+
+  &::after,
+  &::before {
+    content: "";
+    width: 0%;
+    height: 2px;
+    position: absolute;
+
+    background: $red-light;
+
+    transition: 0.5s;
+  }
+
+  &::after {
+    bottom: 0;
+    left: 0;
+  }
+
+  &::before {
+    top: 0;
+    right: 0;
+  }
+
+  &:hover,
+  &:active {
+    color: $red-light;
+    &::after,
+    &::before {
+      width: 100%;
+    }
   }
 }

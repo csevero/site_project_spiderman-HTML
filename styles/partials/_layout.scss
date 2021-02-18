@@ -1,10 +1,9 @@
 .container {
   max-width: 1440px;
-  margin: 0 auto;
-
-  padding: 36px 16px;
-
   height: 70vh;
+
+  margin: 0 auto;
+  padding: 36px 16px;
 
   //como o spiderman deixamos grande, ele criou uma barra de rolagem em baixo, para resolver isso, utilizamos o overflow no container pai, para que tudo que esteja saindo dele, seja escondido, assim as partes do spider man que estavam estrapolando a div foram meio que 'cortadas' para caber na tela e tirar a barra de rolagem. Top!
   overflow: none;
@@ -14,8 +13,8 @@
   align-items: center;
 
   @include responsive() {
-    flex-direction: column-reverse;
     height: auto;
+    flex-direction: column-reverse;
     overflow: hidden;
   }
 }
@@ -43,16 +42,12 @@
 
 .spiderman {
   width: 120%;
-  transform: translate3d(-150px, -70px, 0);
+  transform: translate3d(-150px, -50px, 0);
 
   @include responsive() {
     width: 100%;
     transform: translate3d(0, 0, 0);
   }
-}
-
-.js-tilt {
-  height: 100%;
 }
 
 .btn {
@@ -63,59 +58,47 @@
 
   border-radius: 3px;
   transform: skewX(-10deg);
-
   text-transform: uppercase;
-  background: linear-gradient(267.72deg, #f02a2f 0.88%, #ea1d22 100%);
 
+  background: linear-gradient(267.72deg, #f02a2f 0.88%, #ea1d22 100%);
   position: relative;
 
   transition: 0.5s ease-in-out;
 
-  &::after {
-    content: "";
-    display: block;
-
-    position: absolute;
-    top: -2px;
-    left: -2px;
-
-    width: 20%;
-    height: 70%;
-    border-radius: 3px;
-
-    border-top: 3px solid $white;
-    border-left: 3px solid $white;
-
-    transition: 0.5s ease-in-out;
-
-    opacity: 0;
-  }
-
+  &::after,
   &::before {
     content: "";
     display: block;
 
-    position: absolute;
-    bottom: -2px;
-    right: -2px;
-
     width: 20%;
     height: 70%;
     border-radius: 3px;
 
+    transition: 0.5s ease-in-out;
+    opacity: 0;
+
+    position: absolute;
+  }
+
+  &::after {
+    top: -2px;
+    left: -2px;
+
+    border-top: 3px solid $white;
+    border-left: 3px solid $white;
+  }
+
+  &::before {
+    bottom: -2px;
+    right: -2px;
+
     border-bottom: 3px solid $white;
     border-right: 3px solid $white;
-
-    transition: 0.5s ease-in-out;
-
-    opacity: 0;
   }
 
   &:hover {
     transform: skewX(-10deg) scale(1.05);
-    &::after {
-      opacity: 1;
-    }
+    &::after,
     &::before {
       opacity: 1;
     }
@@ -132,10 +115,9 @@
   text-transform: uppercase;
 
   border: 2px solid $red-light;
+  background: transparent;
 
   position: relative;
-
-  background: transparent;
 
   &::after {
     content: "";
@@ -158,10 +140,14 @@
       width: 101%;
     }
   }
+
+  @include responsive() {
+    display: none;
+  }
 }
 
 .bg-video {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -194,20 +180,20 @@
 }
 
 .bg-loader {
-   width: 100%;
-   height: 100%;
+  width: 100%;
+  height: 100%;
 
-   position: fixed;
-   top: 0;
-   left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 
-   z-index: 999;
+  z-index: 999;
 
-   display: flex;
-   justify-content: center;
-   align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-   background: linear-gradient(225deg, $red 0%, $red-dark 100%);
+  background: linear-gradient(225deg, $red 0%, $red-dark 100%);
 
-   overflow: hidden;
+  overflow: hidden;
 }
